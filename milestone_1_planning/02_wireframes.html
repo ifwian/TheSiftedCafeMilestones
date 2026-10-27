@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframes - The Sifted Cafe</title>
+<style>
+  /* Plain gray boxes on purpose: wireframes show LAYOUT, not colors or photos. */
+  * { box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f2f2f2; color: #222; margin: 0; padding: 24px; }
+  h1 { margin: 0 0 4px; }
+  .note { color: #555; margin: 0 0 24px; }
+  h2 { margin: 36px 0 8px; }
+  .frame { background: #fff; border: 2px solid #333; border-radius: 6px; max-width: 980px; padding: 12px; }
+  .frame.phone { max-width: 300px; }
+  .box { border: 2px dashed #888; background: #e6e6e6; padding: 10px; margin: 8px 0; border-radius: 4px; }
+  .box.dark { background: #bdbdbd; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .row > * { flex: 1 1 120px; }
+  .label { font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #444; display: block; margin-bottom: 4px; }
+  .btn { display: inline-block; border: 2px solid #333; border-radius: 20px; padding: 4px 14px; background: #fff; font-size: 13px; margin: 2px; }
+  .field { border: 2px solid #666; background: #fff; padding: 6px; font-size: 12px; color: #777; margin: 4px 0; border-radius: 4px; }
+  .num { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; background: #333; color: #fff; font-size: 12px; font-weight: bold; margin-right: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; }
+  th, td { border: 1px solid #888; padding: 5px; text-align: left; }
+  th { background: #cfcfcf; }
+  ul.key { font-size: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<h1>Wireframes</h1>
+<p class="note">The Sifted Cafe &amp; Bakery. Gray boxes show where things go. Colors, fonts and photos come from the existing brand (see <code>06_design_notes.md</code>).</p>
+
+<h2>1. Public website (index.html), desktop</h2>
+<div class="frame">
+  <div class="box"><span class="label"><span class="num">1</span>Header</span>
+    <div class="row"><div>Logo "the sifted - cafe &amp; bakery"</div><div>About &nbsp; Menu &nbsp; Gallery &nbsp; Visit us &nbsp; <span class="btn">Reserve a table</span></div></div></div>
+  <div class="box dark"><span class="label"><span class="num">2</span>Hero (big photo behind)</span>
+    <div class="row">
+      <div><b>Good coffee. Good food. Good people.</b><p>Short welcome text</p><span class="btn">Reserve a table</span><span class="btn">See the featured menu</span></div>
+      <div class="box" style="background:#fff"><span class="label">Reservation card</span>
+        <div class="field">Full name</div>
+        <div class="row"><div class="field">Contact number</div><div class="field">Email (required)</div></div>
+        <div class="row"><div class="field">Branch &#9662;</div><div class="field">Guests</div></div>
+        <div class="row"><div class="field">Date</div><div class="field">Time &#9662;</div></div>
+        <div class="row"><div class="field">Occasion (optional)</div><div class="field">Allergies (optional)</div></div>
+        <div class="field">Other requests (optional)</div>
+        <span class="btn">Send reservation request</span>
+      </div>
+    </div></div>
+  <div class="box"><span class="label"><span class="num">3</span>About</span><div class="row"><div>Heading + paragraphs + feature points</div><div class="box dark">Photo</div></div></div>
+  <div class="box"><span class="label"><span class="num">4</span>Featured menu</span><div class="row"><div class="box dark">Card</div><div class="box dark">Card</div><div class="box dark">Card</div><div class="box dark">Card</div></div></div>
+  <div class="box"><span class="label"><span class="num">5</span>Gallery</span><div class="row"><div class="box dark">Photo</div><div class="box dark">Photo</div><div class="box dark">Photo</div></div>Clicking a photo opens a bigger view (lightbox).</div>
+  <div class="box"><span class="label"><span class="num">6</span>Visit us</span><div class="row"><div>Calamba branch: address, hours 10 AM to 10 PM</div><div>Cabuyao branch: address coming soon, hours 9 AM to 9 PM</div><div class="box dark">Photo</div></div></div>
+  <div class="box dark"><span class="label"><span class="num">7</span>Footer</span>Explore links &nbsp;|&nbsp; Follow us &nbsp;|&nbsp; &copy; year &nbsp;|&nbsp; Staff login</div>
+</div>
+
+<h2>2. Public website, phone</h2>
+<div class="frame phone">
+  <div class="box dark">Logo &nbsp;&nbsp;&nbsp; <span class="btn">&#9776; Menu</span></div>
+  <div class="box dark">Hero photo + headline + buttons</div>
+  <div class="box"><span class="label">Reservation card (full width)</span>
+    <div class="field">Full name</div><div class="field">Contact number</div><div class="field">Email</div><div class="field">Branch</div><div class="field">Guests</div><div class="field">Date</div><div class="field">Time</div><span class="btn">Send</span></div>
+  <div class="box">About (stacked)</div><div class="box">Menu cards (1 column)</div><div class="box">Gallery (2 columns)</div><div class="box">Visit us (stacked)</div><div class="box dark">Footer</div>
+</div>
+
+<h2>3. What happens after "Send reservation request"</h2>
+<div class="frame">
+  <div class="row">
+    <div class="box"><span class="num">A</span><b>Success</b><br>Card is replaced by: "Request received", reference <b>SC-00012</b>, summary, status <b>Pending</b>, a note that a late table is held 15 minutes, button "Make another request".</div>
+    <div class="box"><span class="num">B</span><b>Mistake in a field, or that time is full</b><br>Red message under that field, focus moves to the first wrong field. Nothing is sent.</div>
+    <div class="box"><span class="num">C</span><b>Server or database problem</b><br>One clear message at the bottom of the card: "Please try again or contact the cafe."</div>
+  </div>
+</div>
+
+<h2>4. Staff login (login.html)</h2>
+<div class="frame" style="max-width:420px">
+  <div class="box dark" style="text-align:center">Logo</div>
+  <div class="box"><span class="label">Staff sign in</span>
+    <div class="field">Username</div><div class="field">Password</div>
+    <div class="box" style="background:#fff">Error message area (wrong password, too many tries)</div>
+    <span class="btn">Sign in</span><br><small>&larr; Back to the website</small></div>
+</div>
+
+<h2>5. Staff dashboard (admin.html), desktop</h2>
+<div class="frame">
+  <div class="box dark"><span class="label">Header</span>Logo + RESERVATIONS &nbsp;&nbsp; Signed in as admin &nbsp; <span class="btn">View website</span> <span class="btn">Sign out</span></div>
+  <div class="box"><span class="label"><span class="num">1</span>Summary cards (click one to filter)</span>
+    <div class="row"><div class="box dark">All<br><b>0</b></div><div class="box dark">Pending<br><b>0</b></div><div class="box dark">Confirmed<br><b>0</b></div><div class="box dark">Cancelled<br><b>0</b></div><div class="box dark">Completed<br><b>0</b></div><div class="box dark">No-show<br><b>0</b></div></div></div>
+  <div class="box"><span class="label"><span class="num">2</span>Search and filters</span>
+    <div class="row"><div class="field">Search name, phone, email, SC-00012</div><div class="field">Status &#9662;</div><div class="field">Branch &#9662;</div><div class="field">Date from</div><div class="field">Date to</div><div class="field">Sort by &#9662;</div></div><span class="btn">Clear filters</span></div>
+  <div class="box"><span class="label"><span class="num">3</span>Reservation table</span>
+    <table><tr><th>Ref</th><th>Guest</th><th>Date and time</th><th>Guests</th><th>Branch</th><th>Status</th><th>Requested</th><th>Actions</th></tr>
+    <tr><td>SC-00012</td><td>Ana Dela Cruz<br>0917...</td><td>Fri, Oct 30<br>6:00 PM</td><td>4</td><td>Cabuyao</td><td>[Pending]</td><td>2026-10-25</td><td><span class="btn">View</span><span class="btn">Edit</span><span class="btn">Delete</span></td></tr>
+    <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr></table>
+    <p style="font-size:12px">Empty, loading and error messages replace the rows when needed. On a phone each row becomes a small card.</p></div>
+</div>
+
+<h2>6. Staff dashboard: windows (dialogs)</h2>
+<div class="frame">
+  <div class="row">
+    <div class="box"><span class="num">V</span><b>View</b><br>All details of one reservation, phone and email as links.<br>Buttons: <span class="btn">Confirm</span><span class="btn">Cancel reservation</span><span class="btn">Mark completed</span><span class="btn">Mark no-show</span><br><span class="btn">Edit details</span><span class="btn">Delete</span><span class="btn">Close</span></div>
+    <div class="box"><span class="num">E</span><b>Edit</b><br>Same fields as the form + status + private staff notes. Errors show under each field.<br><span class="btn">Save changes</span><span class="btn">Cancel</span></div>
+    <div class="box"><span class="num">D</span><b>Delete?</b><br>"Delete SC-00012 for Ana on Fri, Oct 30 at 6:00 PM? This cannot be undone."<br><span class="btn">Keep it</span><span class="btn">Yes, delete</span></div>
+  </div>
+</div>
+
+<h2>7. Page flow</h2>
+<div class="frame">
+<pre style="font-size:14px;line-height:1.5;margin:0">
+Customer:  index.html --(fill form, Send)--> success message  (saved as Pending)
+
+Staff:     index.html --(footer "Staff login")--> login.html --(sign in)--> admin.html
+           admin.html --(View / Edit / Confirm / Delete)--> changes saved
+           admin.html --(Sign out)--> login.html
+           anyone without a login who opens admin.html --> sent to login.html
+</pre></div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Staff reservations | The Sifted Cafe</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="admin">
+  <a class="skip-link" href="#admin-main">Skip to main content</a>
+
+  <noscript><p class="boot-message">This page needs JavaScript. Please turn it on in your browser.</p></noscript>
+
+  <!-- ================= RESERVATION MANAGER ================= -->
+  <div id="app-view">
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <a class="admin-brand" href="/admin">
+          <img src="/assets/logo-wordmark.png" alt="the sifted" width="700" height="186">
+          <span>Reservations</span>
+        </a>
+        <div class="admin-header-actions">
+          <span class="admin-user">Signed in as <strong id="admin-username"></strong></span>
+          <a class="btn btn-outline btn-small" href="/">View website</a>
+          <button class="btn btn-primary btn-small" type="button" id="logout-button">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="admin-main" class="admin-main">
+      <h1>Reservations</h1>
+
+      <section aria-labelledby="summary-title">
+        <h2 id="summary-title" class="visually-hidden">Reservation counts by status</h2>
+        <div id="summary" class="summary"></div>
+      </section>
+
+      <section aria-labelledby="filter-title">
+        <h2 id="filter-title" class="visually-hidden">Search and filters</h2>
+        <form id="filters" class="filters" novalidate>
+          <div class="field filter-search">
+            <label for="f-search">Search</label>
+            <input id="f-search" type="search" placeholder="Name, phone, email or SC-00012" maxlength="100">
+          </div>
+          <div class="field">
+            <label for="f-status">Status</label>
+            <select id="f-status">
+              <option value="">All statuses</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="completed">Completed</option>
+              <option value="no_show">No-show</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-branch">Branch</label>
+            <select id="f-branch">
+              <option value="">All branches</option>
+              <option value="calamba">Calamba</option>
+              <option value="cabuyao">Cabuyao</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-from">Date from</label>
+            <input id="f-from" type="date">
+          </div>
+          <div class="field">
+            <label for="f-to">Date to</label>
+            <input id="f-to" type="date">
+          </div>
+          <div class="field">
+            <label for="f-sort">Sort by</label>
+            <select id="f-sort">
+              <option value="newest">Newest requests first</option>
+              <option value="upcoming">Reservation date: earliest first</option>
+              <option value="latest_date">Reservation date: latest first</option>
+            </select>
+          </div>
+          <div class="field filter-clear">
+            <button type="button" class="btn btn-outline btn-small" id="f-clear">Clear filters</button>
+          </div>
+        </form>
+      </section>
+
+      <div id="list-status" class="list-status" role="status" aria-live="polite"></div>
+
+      <div class="table-wrap">
+        <table id="reservations-table" class="res-table">
+          <caption class="visually-hidden">Reservation requests</caption>
+          <thead>
+            <tr>
+              <th scope="col">Ref</th>
+              <th scope="col">Guest</th>
+              <th scope="col">Date and time</th>
+              <th scope="col">Guests</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Status</th>
+              <th scope="col">Requested</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reservations-body"></tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ================= DIALOGS ================= -->
+
+  <dialog id="detail-dialog" class="dialog" aria-labelledby="detail-title">
+    <h2 id="detail-title">Reservation</h2>
+    <div id="detail-body"></div>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-outline btn-small" id="detail-close">Close</button>
+    </div>
+  </dialog>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+
+  <script src="/js/admin.js" defer></script>
+</body>
+</html>

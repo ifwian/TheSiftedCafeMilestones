@@ -1,0 +1,20 @@
+{
+  "name": "the-sifted-cafe",
+  "version": "1.0.0",
+  "description": "Reservation website and staff dashboard for The Sifted Cafe & Bakery",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node --test tests/validation.test.js",
+    "test:api": "node --test tests/api.test.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7"
+  }
+}
